@@ -10,6 +10,10 @@ With this mod they read the way they did on the Xbox:
 > STEER **LS LEFT** AND TAP **LT** TO DRIFT AND EARN POWER
 > PRESS **A** TO TRIGGER LEVEL 1 POWER PLAYS
 
+> **On the Steam release, or don't want to edit game files?** [SplitSecond-PadFix](https://github.com/happyc0der/SplitSecond-PadFix)
+> 1.1+ does the same rename in memory while the game runs (on by default), which works on both the Steam release and
+> the DLC build. This script is the file-based alternative for the DLC build.
+
 It renames the controller entries in the game's English text table. Keyboard prompts already use normal key names
 ("LCtrl", "Enter", "PageUp") and stay as they are, apart from the one odd name, "RMenu", which becomes "RAlt".
 
@@ -49,7 +53,8 @@ Early, tested on one install only. Please read this before relying on it.
 **Known limitations:**
 
 - **Doesn't work on the plain Steam release.** Its text table is compressed, so the script finds none of the names
-  and refuses to change anything. It needs the community DLC port's data (see Requirements).
+  and refuses to change anything. It needs the community DLC port's data (see Requirements). On Steam, use PadFix
+  1.1+ instead (tested there: the names were in the game's text table 2 seconds after start).
 - **English only.**
 - **Text, not button icons.**
 - **The names assume the wired Xbox 360 layout** (a wired 360 pad, or
@@ -67,7 +72,7 @@ got the game (Steam, Steam + DLC port, other). A screenshot helps if a name show
 - Python 3.8 or newer, on Windows.
 - **The game data from the community DLC port** (the build that adds the console DLC tracks and cars). Its
   `data\Resident.ark` keeps the text table uncompressed. The plain Steam release stores it compressed, so there the
-  script finds none of the names and leaves the file alone; Steam support would need the archive format decoded.
+  script finds none of the names and leaves the file alone. PadFix 1.1+ covers the Steam release in memory.
 
 ## Use
 
