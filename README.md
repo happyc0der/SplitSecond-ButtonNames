@@ -32,6 +32,36 @@ what you get from a wired 360 pad, or from any Xbox controller with
 [SplitSecond-PadFix](https://github.com/happyc0der/SplitSecond-PadFix) (needed for Bluetooth controllers). The names
 are in capitals because every hint in the game is.
 
+## Status
+
+Early, tested on one install only. Please read this before relying on it.
+
+**Tested:** on the DLC-port data, all 22 names are found and renamed, `--apply` refuses to run twice, and
+`--restore` gives back a byte-identical file (checked against a copy of the original).
+
+**Not tested yet:**
+
+- **How it looks in game.** The names are in the file, but nobody has confirmed every hint, menu and the
+  Options → Controls screen shows them as intended.
+- **Windows 10** and Python versions other than 3.13 (3.8 or newer should work).
+- **Steam libraries in unusual places.** If the script doesn't find the game, pass `--game`.
+
+**Known limitations:**
+
+- **Doesn't work on the plain Steam release.** Its text table is compressed, so the script finds none of the names
+  and refuses to change anything. It needs the community DLC port's data (see Requirements).
+- **English only.**
+- **Text, not button icons.**
+- **The names assume the wired Xbox 360 layout** (a wired 360 pad, or
+  [SplitSecond-PadFix](https://github.com/happyc0der/SplitSecond-PadFix)). With PadFix's `SwapTriggers=1`, the
+  game's LT and RT labels will be the wrong way round, and other controllers or remapped layouts will get Xbox
+  names that don't match their buttons.
+
+## It doesn't work for me
+
+Please [open an issue](../../issues) with the script's output, the size of your `data\Resident.ark`, and where you
+got the game (Steam, Steam + DLC port, other). A screenshot helps if a name shows up wrong in game.
+
 ## Requirements
 
 - Python 3.8 or newer, on Windows.
@@ -71,10 +101,10 @@ The table addresses each string by its offset and ends it with a NUL byte. So th
 
 It never edits while `SplitSecond.exe` is running.
 
-## Limits
+## Why these limits
 
-- These are text names, not button icons. Icons inside the hint text would mean rebuilding the game's Scaleform UI.
-- English only. The renames live in the English table.
+- Icons inside the hint text would mean rebuilding the game's Scaleform UI, so the names are text.
+- The renames live in the English table; other languages have their own.
 - New names can't be longer than the originals, which is why the sticks are "LS LEFT" rather than
   "LEFT STICK LEFT".
 
